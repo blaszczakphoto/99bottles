@@ -1,9 +1,10 @@
 class Bottles
 
   def verses(*verses)
+    verses = Range.new(verses.min, verses.max).to_a
     verses.map do |verse_number|
       verse(verse_number)
-    end.join("\n")
+    end.reverse.join("\n")
   end
 
   def verse(verse)
