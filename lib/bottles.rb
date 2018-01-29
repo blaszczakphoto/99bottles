@@ -1,5 +1,9 @@
 class Bottles
 
+  def song
+    verses(99, 0)
+  end
+
   def verses(*verses)
     verses = Range.new(verses.min, verses.max).to_a
     verses.map do |verse_number|
