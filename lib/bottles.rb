@@ -1,4 +1,11 @@
 class Bottles
+
+  def verses(*verses)
+    verses.map do |verse_number|
+      verse(verse_number)
+    end.join("\n")
+  end
+
   def verse(verse)
     generate_verse_for(verse)
   end
