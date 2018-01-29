@@ -4,6 +4,7 @@ class Bottles
   end
 
   def generate_verse_for(number_of_bottles)
+    return verse_0 if number_of_bottles.zero?
     decremented_number_of_bottles = number_of_bottles - 1
 
     number_of_bottles_string = number_to_bottles(number_of_bottles)
@@ -23,5 +24,12 @@ class Bottles
     elsif number == 0
       "no more bottles"
     end
+  end
+
+  def verse_0
+    <<-VERSE
+No more bottles of beer on the wall, no more bottles of beer.
+Go to the store and buy some more, 99 bottles of beer on the wall.
+    VERSE
   end
 end
