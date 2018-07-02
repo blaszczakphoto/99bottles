@@ -1,47 +1,19 @@
 class Bottles
-
-  def song
-    verses(99, 0)
+    def song
+      verses(99, 0)
   end
-
-  def verses(*verses)
-    verses = Range.new(verses.min, verses.max).to_a
-    verses.map do |verse_number|
-      verse(verse_number)
-    end.reverse.join("\n")
-  end
-
-  def verse(verse)
-    generate_verse_for(verse)
-  end
-
-  def generate_verse_for(number_of_bottles)
-    return verse_0 if number_of_bottles.zero?
-    decremented_number_of_bottles = number_of_bottles - 1
-
-    number_of_bottles_string = number_to_bottles(number_of_bottles)
-    decremented_number_of_bottles_string = number_to_bottles(decremented_number_of_bottles)
-    take_one_down_part = (number_of_bottles == 1) ? "Take it down" : "Take one down"
-    <<-VERSE
-#{number_of_bottles_string} of beer on the wall, #{number_of_bottles_string} of beer.
-#{take_one_down_part} and pass it around, #{decremented_number_of_bottles_string} of beer on the wall.
-    VERSE
-  end
-
-  def number_to_bottles(number)
-    if number > 1
-      "#{number} bottles"
-    elsif number == 1
-      "#{number} bottle"
-    elsif number == 0
-      "no more bottles"
+ 
+    def verses(hi, lo)
+      hi.downto(lo).map {|n| verse(n) }.join("\n")
     end
-  end
-
-  def verse_0
-    <<-VERSE
-No more bottles of beer on the wall, no more bottles of beer.
-Go to the store and buy some more, 99 bottles of beer on the wall.
-    VERSE
+ 
+   def verse(n)
+     "#{n == 0 ? 'No more' : n} bottle#{'s' if n != 1}" +
+     " of beer on the wall, " +
+     "#{n == 0 ? 'no more' : n} bottle#{'s' if n != 1} of beer.\n" +
+     "#{n > 0  ? "Take #{n > 1 ? 'one' : 'it'} down and pass it around"
+               : "Go to the store and buy some more"}, " +
+     "#{n-1 < 0 ? 99 : n-1 == 0 ? 'no more' : n-1} bottle#{'s' if n-1 != 1}"+
+    " of beer on the wall.\n"
   end
 end
