@@ -18,4 +18,8 @@ class WordWrapTest < Minitest::Test
   def test_without_spaces_longer_string
     assert_equal "word\nword\nword\nword", WordWrap.wrap("wordwordwordword", 4)
   end
+
+  def test_space_at_the_edge
+    assert_equal "word\nword", WordWrap.wrap("word word", 4)
+  end
 end
