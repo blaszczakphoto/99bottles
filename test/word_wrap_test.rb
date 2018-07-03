@@ -22,4 +22,8 @@ class WordWrapTest < Minitest::Test
   def test_space_at_the_edge
     assert_equal "word\nword", WordWrap.wrap("word word", 4)
   end
+
+  def test_space_before_column_limit
+    assert_equal "word\nword", WordWrap.wrap("word word", 6)
+  end
 end
