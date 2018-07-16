@@ -14,7 +14,7 @@ class Bottles
     when 2
       "2 bottles of beer on the wall, " +
       "2 bottles of beer.\n" +
-      "Take one down, pass it around, " +
+      "Take one down and pass it around, " +
       "1 bottle of beer on the wall.\n"
     else
       "#{number} bottles of beer on the wall, " +
@@ -22,5 +22,9 @@ class Bottles
       "Take one down, pass it around, " +
       "#{number - 1} bottles of beer on the wall.\n"
     end
+  end
+
+  def verses(a, b)
+    a.downto(b).map { |i| verse(i) }.join("\n")
   end
 end
