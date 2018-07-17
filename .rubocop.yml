@@ -1,0 +1,10 @@
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Layout/MultilineOperationIndentation:
+  EnforcedStyle: indented
+  SupportedStyles:
+    - aligned
+    - indented
+  Enabled: false
+
