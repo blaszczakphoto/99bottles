@@ -24,7 +24,7 @@ class Bottles
     BottleNumber.new(number).quantity
   end
 
-  def action(number = 0)
+  def action(number)
     BottleNumber.new(number).action
   end
 
